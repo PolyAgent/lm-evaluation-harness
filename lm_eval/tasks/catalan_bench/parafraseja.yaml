@@ -1,17 +1,14 @@
-group:
-    - pawsx
-task: paws_es
-dataset_path: paws-x
-dataset_name: es
+task: parafraseja
+dataset_path: projecte-aina/Parafraseja
 output_type: multiple_choice
+dataset_name: null
+test_split: test
 training_split: train
 validation_split: validation
-test_split: test
+doc_to_choice: '{{[sentence1+", veritat? No, "+sentence2, sentence1+", veritat? Sí, "+sentence2]}}'
 process_docs: !function utils.process_docs_paraphrases
 doc_to_text: ''
 doc_to_target: label
-doc_to_choice: '{{[sentence1+", ¿verdad? No, "+sentence2, sentence1+", ¿verdad? Sí, "+sentence2]}}'
-target_delimiter: ''
 metric_list:
   - metric: acc
     aggregation: mean
